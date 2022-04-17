@@ -12,10 +12,6 @@
   align-items: center;
 }
 
-#map {
-  height: 100hv;
-}
-
 .footer {
   display: flex;
   flex: 1;
