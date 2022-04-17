@@ -7,6 +7,7 @@ function LocationMarker() {
     const [position, setPosition] = useState(null);    
     const map = useMap();
     const container = useRef(null);
+    const [show, setShow] = useState(false)
 
     useEffect(() => {
 
@@ -26,10 +27,11 @@ function LocationMarker() {
       return () => {
         Lottie.destroy();
       };
+  
     }, []);
 
     return position === null ? (
-      <div ref={container} />
+      <div ref={container} className="lottie-player"/>
     ) : (
       <Marker position={position}>
         <Popup>You are here</Popup>

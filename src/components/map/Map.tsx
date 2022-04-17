@@ -8,11 +8,10 @@ import LocationMarker from "../clickEvents/InitialEvents"
 const Map = () => {
   return (
     <MapContainer
-      center={[64.9631, 19.02081]}
+      center={[33.43742900592779, -40.618167515754536]}
       zoom={13}
       scrollWheelZoom={true}
-      style={{ height: "100%", width: "100%"}}
-      fadeAnimation={true}
+      style={{ height: "100%", width: "100%", }}
     >
       <TileLayer
         attribution='&copy; <a href="https://www.openstreetmap.org/copyright">OpenStreetMap</a> contributors'
