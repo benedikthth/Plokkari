@@ -9,6 +9,7 @@
     "lint": "next lint"
   },
   "dependencies": {
+    "h3-js": "^3.7.2",
     "leaflet": "^1.7.1",
     "leaflet-defaulticon-compatibility": "^0.1.1",
     "lottie-web": "^5.9.2",

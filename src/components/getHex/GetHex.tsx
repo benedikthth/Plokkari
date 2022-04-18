@@ -1,45 +1,42 @@
 import { useState, useEffect, useRef} from 'react'
-import { useMap } from 'react-leaflet'
-import usePrevious from './UsePrevious';
-
+import { useMap, Polygon, Marker, Polyline } from 'react-leaflet'
 
 
 function GetHex() {
-    const [data, setData] = useState(null);   
+    const [data, setData] = useState(null);  
     const map = useMap();
-    let east = null;
-    let west = null;
-    let south = null;
-    let north = null;
+    const h3 = require("h3-js");
+    const boundedHex = [];
+    let number = 0;
 
     useEffect(() => {
       map.on('moveend', function() { 
-        east = map.getBounds().getEast();
-        west = map.getBounds().getWest();
-        south = map.getBounds().getSouth();
-        north = map.getBounds().getNorth();
-        fetch(`http://spock.is:5000/api/Trash?LowerLatBound=${west}&LowerLngBound=${south}&UpperLatBound=${east}&UpperLngBound=${north}`)
+        let location = {east: map.getBounds().getEast(), west:  map.getBounds().getWest(), south: map.getBounds().getSouth(), north: map.getBounds().getNorth()};
+        fetch(`http://spock.is:5000/api/Trash?LowerLatBound=${location.west}&LowerLngBound=${location.south}&UpperLatBound=${location.east}&UpperLngBound=${location.north}`)
             .then(res => res.json())
-            .then( newRequestData => {
-                // filter out unwanted data
-               /* code that takes data from newRequestData and adds it to the data we already have */ 
-                //setData(newRequestDataThatHasBeenFiltered); 
-            
+            .then( data => {
                 if (data !== null) {
-                    console.log(newRequestData)
-                    console.log(data)
-                }    
-            } )            
-        
+                  setData(data.map(hexOnly => hexOnly.h3Id))
+                  
+                }
+            })        
       })
     }, []);
+
+
+    if (data !== null) {
+      const coordinates = h3.h3SetToMultiPolygon(data, false);
+      console.log(coordinates)
     
-
-   
-
+      coordinates.forEach((data) => {
+        boundedHex.push(<Polygon key={number = number +1} positions={data}/>)
+      })
+    }
     return (
-        <div></div>
-        );
+      <div>
+          {boundedHex}  
+      </div>  
+    )
   }
 
   export default GetHex

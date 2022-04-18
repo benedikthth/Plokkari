@@ -7,6 +7,8 @@ import "leaflet-defaulticon-compatibility";
 import LocationMarker from "../initialEvents/InitialEvents"
 import GetHex from "../getHex/GetHex";
 
+//maxZoom={14}
+//minZoom={10}
 
 const Map = () => {
   return (
@@ -15,8 +17,7 @@ const Map = () => {
       zoom={13}
       scrollWheelZoom={true}
       style={{ height: "100%", width: "100%"}}
-      maxZoom={14}
-      minZoom={10}
+
       animate={false}
     >
       <TileLayer
