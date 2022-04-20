@@ -17,9 +17,7 @@ function GetHex() {
             .then(res => res.json())
             .then( data => {
                 if (data !== null) {
-                  setData(data.map(hexOnly => hexOnly.h3Id))
-                  console.log(`http://spock.is:5000/api/Trash?LowerLatBound=${location.west}&LowerLngBound=${location.south}&UpperLatBound=${location.east}&UpperLngBound=${location.north}`)
-                }
+                  setData(data.map(hexOnly => hexOnly.h3Id))                }
             })        
       })
     }, []);
