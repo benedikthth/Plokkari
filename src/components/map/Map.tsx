@@ -17,13 +17,15 @@ const Map = () => {
   const [mode, setMode] = useState('simple_select');
 
   return (
-    <MapContainer
+
+
+      <MapContainer
       center={[33.43742900592779, -40.618167515754536]}
       zoom={17}
       scrollWheelZoom={true}
       style={{ height: "100%", width: "100%"}}
-      maxZoom={18}
-      minZoom={14}
+      //maxZoom={18}
+      //minZoom={14}
       animate={false}
     >
       <TileLayer
@@ -34,6 +36,8 @@ const Map = () => {
       <GetHex />
       <DrawHex />
     </MapContainer>
+
+   
   );
 };
 
