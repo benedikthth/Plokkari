@@ -2,7 +2,7 @@ import { useState, useEffect, useRef} from 'react'
 import { Marker, Popup, useMap } from 'react-leaflet'
 import Loading from '../loading/Loading'
 
-function LocationMarker() {
+function InitialEvents() {
     const [position, setPosition] = useState(null);    
     const map = useMap();
 
@@ -25,4 +25,4 @@ function LocationMarker() {
       );
   }
 
-  export default LocationMarker
+  export default InitialEvents

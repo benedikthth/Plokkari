@@ -1,5 +1,6 @@
 import { useState, useEffect, useRef} from 'react'
 import { useMap, Polygon, Marker, Polyline } from 'react-leaflet'
+import Loading from '../loading/Loading';
 
 
 function GetHex() {
@@ -11,13 +12,13 @@ function GetHex() {
 
     useEffect(() => {
       map.on('moveend', function() { 
-        let location = {east: map.getBounds().getEast(), west:  map.getBounds().getWest(), south: map.getBounds().getSouth(), north: map.getBounds().getNorth()};
-        fetch(`http://spock.is:5000/api/Trash?LowerLatBound=${location.west}&LowerLngBound=${location.south}&UpperLatBound=${location.east}&UpperLngBound=${location.north}`)
+        let location = {east: map.getBounds().getEast() + 0.005, west:  map.getBounds().getWest() - 0.005, south: map.getBounds().getSouth() - 0.005, north: map.getBounds().getNorth() + 0.005};
+        fetch(`http://spock.is:5000/api/Trash?LowerLatBound=${location.south}&LowerLngBound=${location.west}&UpperLatBound=${location.north}&UpperLngBound=${location.east}`)
             .then(res => res.json())
             .then( data => {
                 if (data !== null) {
                   setData(data.map(hexOnly => hexOnly.h3Id))
-                  
+                  console.log(`http://spock.is:5000/api/Trash?LowerLatBound=${location.west}&LowerLngBound=${location.south}&UpperLatBound=${location.east}&UpperLngBound=${location.north}`)
                 }
             })        
       })
@@ -26,13 +27,13 @@ function GetHex() {
 
     if (data !== null) {
       const coordinates = h3.h3SetToMultiPolygon(data, false);
-      console.log(coordinates)
-    
       coordinates.forEach((data) => {
-        boundedHex.push(<Polygon key={number = number +1} positions={data}/>)
+        boundedHex.push(<Polygon color={'green'} key={number = number +1} positions={data}/>)
       })
     }
-    return (
+    return data === null ? (
+      <Loading/>     
+      ) : (
       <div>
           {boundedHex}  
       </div>  
