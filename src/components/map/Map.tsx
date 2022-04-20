@@ -10,8 +10,7 @@ import GetHex from "../getHex/GetHex";
 import DrawHex from "../drawHex/DrawHex";
 //import DrawHex from "../drawHex/DrawHex";
 
-//maxZoom={14}
-//minZoom={10}
+
 
 const Map = () => {
   
@@ -20,15 +19,16 @@ const Map = () => {
   return (
     <MapContainer
       center={[33.43742900592779, -40.618167515754536]}
-      zoom={13}
+      zoom={17}
       scrollWheelZoom={true}
       style={{ height: "100%", width: "100%"}}
-
+      maxZoom={18}
+      minZoom={14}
       animate={false}
     >
       <TileLayer
-        attribution='&copy; <a href="https://www.openstreetmap.org/copyright">OpenStreetMap</a> contributors'
-        url="https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png"
+        attribution="attribution: 'Tiles &copy; Esri &mdash; Source: Esri, DeLorme, NAVTEQ, USGS, Intermap, iPC, NRCAN, Esri Japan, METI, Esri China (Hong Kong), Esri (Thailand), TomTom, 2012'"
+        url="https://server.arcgisonline.com/ArcGIS/rest/services/World_Street_Map/MapServer/tile/{z}/{y}/{x}"
       />
       <InitialEvents/>
       <GetHex />

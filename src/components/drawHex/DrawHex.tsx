@@ -30,7 +30,7 @@ function DrawHex() {
       //console.log(h3.polyfill(e.layer._latlngs, 10))
       let geometry = e.layer.toGeoJSON().geometry.coordinates;//.coordinates;//#flatMap(x=>[x[1], x[0]]);
       geometry = geometry.map(x=>x.map(y=>[y[1],y[0]]));
-      const data = h3.polyfill(geometry, 11);
+      const data = h3.polyfill(geometry, 12);
       // const coordinates = data.map(x=>h3.h3SetToMultiPolygon([x], false));
       const coordinates = h3.h3SetToMultiPolygon(data, false);
       setData(coordinates)
