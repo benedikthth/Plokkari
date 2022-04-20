@@ -28,17 +28,12 @@ function DrawHex() {
 
     const _onCreated = (e) => {
       //console.log(h3.polyfill(e.layer._latlngs, 10))
-      const geometry = e.layer.toGeoJSON().geometry.coordinates;
-      const data = h3.polyfill(geometry, 9);
-      const coordinates = data.map(x=>h3.h3SetToMultiPolygon([x], true));
-      // const coordinates = h3.h3SetToMultiPolygon(data, true);
-      console.log(coordinates)
+      let geometry = e.layer.toGeoJSON().geometry.coordinates;//.coordinates;//#flatMap(x=>[x[1], x[0]]);
+      geometry = geometry.map(x=>x.map(y=>[y[1],y[0]]));
+      const data = h3.polyfill(geometry, 11);
+      // const coordinates = data.map(x=>h3.h3SetToMultiPolygon([x], false));
+      const coordinates = h3.h3SetToMultiPolygon(data, false);
       setData(coordinates)
-      // var bh = [];
-      // coordinates.forEach((data) => {
-      //   bh.push(<Polygon fill={true} color={'green'} key={number = number +1} positions={data}/>)
-      // })
-      // setBoundedHex(bh)
     }
 
 
