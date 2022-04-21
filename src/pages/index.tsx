@@ -12,12 +12,8 @@ export default function Home() {
     <main>
       <div>
         <div id="map">
-          <MapWithNoSSR/>
+          <MapWithNoSSR />
         </div>
-        <div>
-          <CongrazBox />
-        </div>
-       
       </div>
     </main>
 

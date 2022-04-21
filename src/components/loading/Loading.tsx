@@ -9,7 +9,7 @@ function Loading() {
       Lottie.loadAnimation({
         container: container.current,
         renderer: "svg",
-        loop: true,
+        loop: false,
         autoplay: true,
         animationData: location
       });
@@ -19,7 +19,7 @@ function Loading() {
     }, []);
 
     return (
-      <div ref={container} className="lottie-player" />     
+      <div ref={container} className="lottie-player1" />     
     )
   }
 

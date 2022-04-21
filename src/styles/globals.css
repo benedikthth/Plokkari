@@ -10,7 +10,7 @@ body {
   height: 100vh;
 }
 
-.lottie-player {
+.lottie-player1 {
   z-Index: 1000;
   margin: 0 auto;
   width: 150px;
@@ -19,6 +19,18 @@ body {
   top: 50%;
   left: 50%;
   transform: translate(-50%,-50%);
+}
+
+.lottie-player2 {
+  z-Index: 1000;
+  margin: 0 auto;
+  width: 50vh;
+  height: 50vh;
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%,-50%);
+  pointer-events: none;
 }
 
 #over{
@@ -53,10 +65,7 @@ body {
   margin: 0;
   grid-area: header;
   place-self: center stretch;
-  
 }
-
-
 
 .box > .button1 {
   font-size: 20px;
@@ -71,7 +80,6 @@ body {
   background-color: #FF9E80;
   box-shadow: 0 5px #666;
   transform: translateY(4px);
-
 }
 
 .box > .button2 {
@@ -87,5 +95,4 @@ body {
   background-color: #82CAAF;
   box-shadow: 0 5px #666;
   transform: translateY(4px);
-
 }
