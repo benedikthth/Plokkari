@@ -12,9 +12,8 @@ body {
 
 .lottie-player1 {
   z-Index: 1000;
-  margin: 0 auto;
-  width: 150px;
-  height: 150px;
+  width: 200px;
+  height: 200px;
   position: absolute;
   top: 50%;
   left: 50%;
@@ -23,7 +22,7 @@ body {
 
 .lottie-player2 {
   z-Index: 1000;
-  margin: 0 auto;
+  margin: auto;
   width: 50vh;
   height: 50vh;
   position: absolute;
@@ -39,7 +38,7 @@ body {
   z-index: 1000;
   top: 50%;
   left: 50%;
-  width: 50vh;
+  width: 70vw;
   height: 50vh;
   transform: translate(-50%,-50%);
 }
@@ -47,19 +46,20 @@ body {
 .box {
   display: grid;
   grid-template-columns: auto;
-  grid-template-rows: 35vh 15vh;
+  grid-template-rows: 30vh 20vh;
   height: 50vh;
-  width: 50vh;
+  width: 70vw;
   background: #F7E4E0;
   grid-template-areas: 
   "header header"
   "main main";
   border-radius: 50px;
   border: 3px solid black;
+  margin: 0;
 }
 
 .box > h1 {
-  font-size: 30px;
+  font-size: 5vw;
   text-align: center;
   background-color: transparent;
   margin: 0;
@@ -68,8 +68,8 @@ body {
 }
 
 .box > .button1 {
-  font-size: 20px;
-  margin: 20px;
+  font-size: 5vw;
+  margin: 1vw;
   background-color: #D7B7BC;
   border-radius: 50px;
   border: 3px solid black;
@@ -83,8 +83,8 @@ body {
 }
 
 .box > .button2 {
-  font-size: 20px;
-  margin: 20px;
+  font-size: 5vw;
+  margin: 1vw;
   background-color: #8BA6E9;
   border-radius: 50px;
   border: 3px solid black;
