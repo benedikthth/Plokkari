@@ -19,21 +19,15 @@ return (
     <div id='over'>
         <animated.div className="box" style={contentProps}>
             <h1>Ertu tilbúin að ljúka plokk svæði?</h1>
-            <button className="button">
+            <button className="button1">
                 Hætta við
              </button>
-             <button className="button">
+             <button className="button2">
                 Staðfesta
              </button>
         </animated.div>
     </div>
-
     )}
-    <div className="button-container">
-        <button onClick={() => displayGreeting(a => !a)} className="button">
-          Click Here
-        </button>
-      </div>
     </div>
     )
 }
