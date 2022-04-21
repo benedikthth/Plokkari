@@ -20,3 +20,46 @@ body {
   left: 50%;
   transform: translate(-50%,-50%);
 }
+
+#over{
+  background-color: transparent;
+  position: absolute;
+  z-index: 1000;
+  top: 50%;
+  left: 50%;
+  width: 50vh;
+  height: 50vh;
+  transform: translate(-50%,-50%);
+}
+
+.box {
+  display: grid;
+  grid-template-columns: 50px 50px;
+  grid-template-rows: auto;
+  height: 50vh;
+  padding-bottom: 10vh;
+  background-color: black;
+  grid-template-rows: auto;
+  grid-template-areas: 
+  "header header"
+  "main main";
+}
+
+.box > h1 {
+  font-size: 20px;
+  margin: 0 0 1rem 0;
+  padding-top: 15px;
+  text-align: center;
+  /* border: solid 1px; */
+  border-radius: 10px;
+  background: white;
+  grid-column-start: 1;
+  grid-column-end: 6;
+  
+}
+
+.box > button {
+  grid-column-start: 1;
+  grid-column-end: 2;
+}
+

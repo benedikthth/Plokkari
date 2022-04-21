@@ -27,7 +27,6 @@ function DrawHex() {
 
     const _onCreated = (e) => {
       let geometry = e.layer.getLatLngs()[0].map(points => Object.values(points));
-      console.log(e)
       const data = h3.polyfill(geometry, 12);
       const coordinates = h3.h3SetToMultiPolygon(data, false);
       setData(coordinates)
@@ -48,17 +47,13 @@ function DrawHex() {
       map.on('zoom', function(e) { 
         if (e.sourceTarget.getZoom() < 16) {
           setDraw(prevInfo => ({...prevInfo, polygon: false, }))
-          console.log(draw)
         } else {
           setDraw(prevInfo => ({...prevInfo, polygon: true, }))
-          console.log(draw)
         }
       })
     }, []);
 
     var renderedPolygon = data.map(coordinateSet => <Polygon key={data.indexOf(coordinateSet)} color="green" positions={coordinateSet}/>)
-    
-//    {(data.map(coordinateSet => <Polygon key={data.indexOf(coordinateSet)} color="green" positions={coordinateSet}/>))}
     return (
       <div>
         {renderedPolygon}
