@@ -72,6 +72,7 @@ path {
 }
 
 .box > .button1 {
+  z-Index: 2000;
   font-size: 3vw;
   margin: 2vw;
   background-color: #D7B7BC;
@@ -87,6 +88,7 @@ path {
 }
 
 .box > .button2 {
+  z-Index: 2000;
   font-size: 3vw;
   margin: 2vw;
   background-color: #8BA6E9;
