@@ -36,7 +36,7 @@ function CongrazBox({data, eraseData}) {
             autoplay: true,
             animationData: location
           });
-            fetch('https://plokkapi.spock.is/api/Trash', {
+            fetch('https://www.api.plokkari.is/api/Trash', {
             method: 'POST',
             headers: {
                 'Accept': 'application/json',

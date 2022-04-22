@@ -32,6 +32,10 @@ body {
   pointer-events: none;
 }
 
+path {
+  pointer-events: auto;
+}
+
 #over{
   background-color: transparent;
   position: absolute;

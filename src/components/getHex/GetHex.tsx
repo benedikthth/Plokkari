@@ -13,7 +13,7 @@ function GetHex(props) {
 
     const getHex = () =>  {
       let location = {east: map.getBounds().getEast() + 0.005, west:  map.getBounds().getWest() - 0.005, south: map.getBounds().getSouth() - 0.005, north: map.getBounds().getNorth() + 0.005};
-        fetch(`https://plokkapi.spock.is/api/Trash?LowerLatBound=${location.south}&LowerLngBound=${location.west}&UpperLatBound=${location.north}&UpperLngBound=${location.east}`)
+        fetch(`https://www.api.plokkari.is/api/Trash?LowerLatBound=${location.south}&LowerLngBound=${location.west}&UpperLatBound=${location.north}&UpperLngBound=${location.east}`)
             .then(res => res.json())
             .then( data => {
                 if (data !== null) {
