@@ -25,7 +25,7 @@ const Map = () => {
     setH3Data(null);
  }
   
-
+ //minZoom={13}
   return (
     <> 
      { h3Data && <CongrazBox data={h3Data} eraseData={eraseData}/> }
@@ -35,7 +35,6 @@ const Map = () => {
       scrollWheelZoom={true}
       style={{ height: "100%", width: "100%"}}
       maxZoom={18}
-      minZoom={13}
       animate={false}
       doubleClickZoom={false}
       >

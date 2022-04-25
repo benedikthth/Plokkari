@@ -28,7 +28,6 @@ function CongrazBox({data, eraseData}) {
 
     const submit = () => { 
           setSubmitted(true)
-          console.log(data)
           Lottie.loadAnimation({
             container: container.current,
             renderer: "svg",

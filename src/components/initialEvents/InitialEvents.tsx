@@ -12,7 +12,6 @@ function InitialEvents() {
       map.locate().on("locationfound", function (e) {
         setPosition(e.latlng);
         map.flyTo(e.latlng, map.getZoom(), {animate: false});
-        console.log("Hello")
       });
     }, []);
 
@@ -22,8 +21,6 @@ function InitialEvents() {
         //map.flyTo(map.unproject(position), map.getZoom(), {animate: false});
       });
     }, []);
-
-    console.log(position)
     return position === null ? (
       <Loading/>     
       ) : (

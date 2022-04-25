@@ -26,7 +26,6 @@ function DrawHex(props) {
     
     function resetDrawing() {
       // here we delete the current shape the user is drawing
-      console.log("við erum snillingar")
       setData([])
     }
 
