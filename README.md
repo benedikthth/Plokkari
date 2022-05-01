@@ -1,15 +1,19 @@
 <div id="top"></div>
 
 <!-- PROJECT SHIELDS -->
-[![Contributors][contributors-shield]][contributors-url]
+<!-- [![Contributors][contributors-shield]][contributors-url]
 [![Issues][issues-shield]][issues-url]
-[![MIT License][license-shield]][license-url]
+[![MIT License][license-shield]][license-url]  -->
 
 <!-- PROJECT LOGO -->
 <br />
 <div align="center">
-  <h3 align="center"><a href="http://www.plokkari.is">plokkari.is</a></h3>
-
+  <h3 align="center">
+    <a href="http://www.plokkari.is">
+      <img src="https://ploggin.is/assets/img/logos/ploggin_logo.jpg" alt="Logo" width="80" height="80">
+      <p>plokkari.is</p>
+    </a>
+  </h3>
   <p align="center">
     plokkari.is: A visualization mapping tools for plogging community
     <br />
@@ -37,8 +41,9 @@
     <li>
       <a href="#getting-started">Getting Started</a>
       <ul>
-        <li><a href="#prerequisites">Prerequisites</a></li>
-        <li><a href="#installation">Installation</a></li>
+        <li><a href="#frontend">Prerequisites</a></li>
+        <li><a href="#backend">Installation</a></li>
+        <li><a href="#database">Installation</a></li>
       </ul>
     </li>
     <li><a href="#usage">Usage</a></li>
@@ -56,8 +61,6 @@
 Programming in the 21st century is a great power, and with great power, must also come great responsibility. Countless non-profit communities around us need our support. The plogging community is just one of many. With the right platform, people are free to define their goals and to visualise their achievements. 
 
 <p align="right">(<a href="#top">back to top</a>)</p>
-
-This is a [Next.js](https://nextjs.org/) project bootstrapped with [`create-next-app`](https://github.com/vercel/next.js/tree/canary/packages/create-next-app).
 
 ### Built With
 
@@ -90,7 +93,9 @@ This is a [Next.js](https://nextjs.org/) project bootstrapped with [`create-next
 <!-- GETTING STARTED -->
 ## Getting Started
 
-### Frontend
+### Prerequisites
+
+#### Frontend
 
 First, run the development server:
 
@@ -102,11 +107,25 @@ yarn dev
 
 Open [http://localhost:3000](http://localhost:3000) with your browser to see the result.
 
-### Backend
+#### Backend
 
-### Database
+#### Database
+
+### Installation
+
+Docker-compose (coming soon)
 
 <p align="right">(<a href="#top">back to top</a>)</p>
+
+<!-- USAGE EXAMPLES -->
+## Usage
+
+Coming soon
+
+<p align="right">(<a href="#top">back to top</a>)</p>
+
+
+
 
 <!-- ROADMAP -->
 ## Roadmap
@@ -195,8 +214,8 @@ Benedikt Þórðarson - Email - benedikthth@ru.is
 <!-- ACKNOWLEDGMENTS -->
 ## Acknowledgments
 
-[Ikigai: The Japanese Secret to a Long and Happy Life](https://www.amazon.com/Ikigai-Japanese-Secret-Long-Happy/dp/0143130722)
-[Uber H3-js](https://eng.uber.com/h3/)
-[Volodymyr Agafonkin](https://leafletjs.com/)
-And more to come!
+* [Ikigai: The Japanese Secret to a Long and Happy Life](https://www.amazon.com/Ikigai-Japanese-Secret-Long-Happy/dp/0143130722)
+* [Uber H3-js](https://eng.uber.com/h3/)
+* [Volodymyr Agafonkin](https://leafletjs.com/)
+* And more to come!
 
