@@ -32,6 +32,7 @@ function GetHex(props) {
 
     if (data !== null) {
       const coordinates = h3.h3SetToMultiPolygon(data, false);
+      console.log(coordinates)
       coordinates.forEach((data) => {
         boundedHex.push(<Polygon color={'green'} key={number = number +1} positions={data}/>)
       })
