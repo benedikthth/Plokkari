@@ -35,7 +35,7 @@ function CongrazBox({data, eraseData}) {
             autoplay: true,
             animationData: location
           });
-            fetch(`${process.env.NEXT_PUBLIC_API_URL}/Trash/Clean`, {
+            fetch(`${process.env.NEXT_PUBLIC_API_URL}/Trash/Trash`, {
             method: 'POST',
             headers: {
                 'Accept': 'application/json',

@@ -17,7 +17,7 @@ function GetHex(props) {
     const getHex = () =>  {
       let location = {east: map.getBounds().getEast() + 0.005, west:  map.getBounds().getWest() - 0.005, south: map.getBounds().getSouth() - 0.005, north: map.getBounds().getNorth() + 0.005};
         // fetch(`https://www.api.plokkari.is/api/Trash?LowerLatBound=${location.south}&LowerLngBound=${location.west}&UpperLatBound=${location.north}&UpperLngBound=${location.east}`)
-        fetch(`${process.env.NEXT_PUBLIC_API_URL}/Trash?LowerLatBound=${location.south}&LowerLngBound=${location.west}&UpperLatBound=${location.north}&UpperLngBound=${location.east}`)
+        fetch(`${process.env.NEXT_PUBLIC_API_URL}/Trash/polygon?LowerLatBound=${location.south}&LowerLngBound=${location.west}&UpperLatBound=${location.north}&UpperLngBound=${location.east}`)
             .then(res => res.json())
             .then( data => {
                 if (data !== null) {
@@ -34,16 +34,41 @@ function GetHex(props) {
       })
     }, []);
 
-
+    console.log(data);
+    
     if (data !== null) {
-      const cleancoordinates = h3.h3SetToMultiPolygon(data.clean, false);
-      cleancoordinates.forEach((data) => {
-        boundedHex.push(<Polygon color={'green'} key={number = number +1} positions={data}/>)
-      })
-      const dirtycoordinates = h3.h3SetToMultiPolygon(data.dirty, false);
-      dirtycoordinates.forEach((data) => {
-        boundedHex.push(<Polygon color={'red'} key={number = number +1} positions={data}/>)
-      })
+
+      // const cleancoordinates = h3.h3SetToMultiPolygon(data.clean, false);
+      // cleancoordinates.forEach((data) => {
+      //   boundedHex.push(<Polygon color={'green'} key={number = number +1} positions={data}/>)
+      // })
+      console.log(data);
+      const cleanBoundaries = data.Clean;
+      if(cleanBoundaries != null){
+          cleanBoundaries.coordinates.forEach((x, index) => {
+          // console.log(x);
+          boundedHex.push(<Polygon key={index} color={'green'} positions={x} />)
+          
+        })
+      } 
+      const dirtyBoundaries = data.Dirty;
+      if(dirtyBoundaries != null){
+        dirtyBoundaries.coordinates.forEach((x, index) => {
+          // console.log(x);
+          boundedHex.push(<Polygon key={index} color={'red'} positions={x} />)
+          
+        })
+      } 
+      // data.coordinates.foreach(coordList => {
+      //   boundedHex.push(<Polygon key={1} color={'green'} positions={coordList} />)
+
+      // })
+      // boundedHex.push(<Polygon key={1} color={'green'} positions={data.coordinates} />)
+
+      // const dirtycoordinates = h3.h3SetToMultiPolygon(data.dirty, false);
+      // dirtycoordinates.forEach((data) => {
+      //   boundedHex.push(<Polygon color={'red'} key={number = number +1} positions={data}/>)
+      // })
     }
     return data === null ? (
       <Loading/>     
