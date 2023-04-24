@@ -13,7 +13,6 @@ function GetHex(props) {
     const boundedHex = [];
     let number = 0;
     const {triggerGetHexFunction} = props;
-    console.log(process.env.HOST_URL);
     
     const getHex = () =>  {
       let location = {east: map.getBounds().getEast() + 0.005, west:  map.getBounds().getWest() - 0.005, south: map.getBounds().getSouth() - 0.005, north: map.getBounds().getNorth() + 0.005};
@@ -22,7 +21,8 @@ function GetHex(props) {
             .then(res => res.json())
             .then( data => {
                 if (data !== null) {
-                  setData(data.map(hexOnly => hexOnly.h3Id))                }
+                  setData(data)                
+                }
             })        
     };
 
@@ -36,10 +36,13 @@ function GetHex(props) {
 
 
     if (data !== null) {
-      const coordinates = h3.h3SetToMultiPolygon(data, false);
-      console.log(coordinates)
-      coordinates.forEach((data) => {
+      const cleancoordinates = h3.h3SetToMultiPolygon(data.clean, false);
+      cleancoordinates.forEach((data) => {
         boundedHex.push(<Polygon color={'green'} key={number = number +1} positions={data}/>)
+      })
+      const dirtycoordinates = h3.h3SetToMultiPolygon(data.dirty, false);
+      dirtycoordinates.forEach((data) => {
+        boundedHex.push(<Polygon color={'red'} key={number = number +1} positions={data}/>)
       })
     }
     return data === null ? (
